@@ -1,5 +1,3 @@
-import React from 'react';
-
 const About = () => {
   return <h2 className="text-red-500">About</h2>;
 };

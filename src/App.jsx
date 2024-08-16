@@ -1,8 +1,9 @@
 import { Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import About from './pages/About';
+import Home from './pages/Home/Home';
 import Loyout from './components/Loyout';
-import NotFound from './pages/NotFound';
+import NotFound from './pages/NotFound/NotFound';
+import Movies from './pages/Movies/Movies';
+import MovieInfo from './components/MovieInfo/MovieInfo';
 
 const App = () => {
   return (
@@ -10,7 +11,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Loyout />}>
           <Route index element={<Home />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/movies" element={<Movies />} />
+          <Route path="/movies/:moviesId" element={<MovieInfo />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

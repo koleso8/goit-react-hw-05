@@ -1,7 +1,16 @@
-import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 const MovieInfo = () => {
-  return <div>MovieInfo</div>;
+  const location = useLocation();
+  console.log(location);
+
+  return (
+    <div>
+      <Link to={location.current ?? '/'}>Go back</Link>
+
+      <div>MovieInfo</div>
+    </div>
+  );
 };
 
 export default MovieInfo;

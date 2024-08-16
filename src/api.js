@@ -14,3 +14,11 @@ export const fetchTrendingMovies = async () => {
   );
   return data.results;
 };
+
+export const fetchSearchMovies = async query => {
+  const { data } = await axios.get(
+    `https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`,
+    options
+  );
+  return data.results;
+};

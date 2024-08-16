@@ -24,7 +24,7 @@ const Home = () => {
       <ul>
         {movies.map(item => (
           <li key={item.id}>
-            <Movie id={item.id} title={item.title} />
+            <Movie id={item.id} title={item.title} img={item.backdrop_path} />
           </li>
         ))}
       </ul>

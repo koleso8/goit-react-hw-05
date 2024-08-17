@@ -4,7 +4,20 @@ import daisyui from 'daisyui';
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      blur: {
+        xs: '1px',
+      },
+      dropShadow: {
+        '3xl': '0 35px 35px rgba(0, 0, 0, 0.25)',
+        '4xl': [
+          '1px 1px 1px #000',
+          '-1px 1px 1px #000',
+          '0 1px 1px #000',
+          '0 -1px 1px #000',
+        ],
+      },
+    },
   },
   plugins: [daisyui],
 };

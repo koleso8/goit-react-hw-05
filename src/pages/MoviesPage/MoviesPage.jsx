@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import MovieList from '../../components/MovieList/MovieList';
 import Loader from '../../components/Loader/Loader';
 import { useSearchParams } from 'react-router-dom';
+import seError from '../../components/useError/seError';
 
 const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
@@ -31,8 +32,9 @@ const MoviesPage = () => {
   }, [query, searchParams]);
 
   const handleSubmit = async (res, options) => {
+    if (res.search.trim()) seError();
     setSearchParams(res);
-    setQuery(res.search);
+    setQuery(res.search.trim());
     options.resetForm();
   };
 

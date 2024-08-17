@@ -1,24 +1,29 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getReviews } from '../../services/api';
+import seError from '../useError/seError';
 
 const MovieReviews = () => {
   const { movieId } = useParams();
   const [reviews, setReviews] = useState([]);
+  const [isError, setIsError] = useState('');
 
   useEffect(() => {
     const fetchReviewsById = async () => {
       try {
+        setIsError(false);
         const data = await getReviews(movieId);
         setReviews(data);
-        console.log(data);
       } catch (error) {
+        setIsError(true);
         console.log(error.message);
       }
     };
 
     fetchReviewsById();
   }, [movieId]);
+
+  if (isError) seError();
 
   return (
     <div>

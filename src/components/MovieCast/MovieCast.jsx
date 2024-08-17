@@ -1,23 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { getCast } from '../../services/api';
 import { useParams } from 'react-router-dom';
+import seError from '../useError/seError';
 
 const MovieCast = () => {
   const { movieId } = useParams();
   const [cast, setCast] = useState([]);
+  const [isError, setIsError] = useState('');
 
   useEffect(() => {
     const fetchCastById = async () => {
       try {
+        setIsError(false);
         const data = await getCast(movieId);
         setCast(data);
       } catch (error) {
+        setIsError(true);
         console.log(error.message);
       }
     };
 
     fetchCastById();
   }, [movieId]);
+
+  if (isError) seError();
 
   return (
     <div>

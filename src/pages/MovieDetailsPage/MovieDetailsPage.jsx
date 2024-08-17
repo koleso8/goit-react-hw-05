@@ -9,6 +9,7 @@ import { IoArrowBackCircle } from 'react-icons/io5';
 import { useEffect, useRef, useState } from 'react';
 import { getMovieDetails } from '../../services/api';
 import Loader from '../../components/Loader/Loader';
+import seError from '../../components/useError/seError';
 
 const MovieDetailsPage = () => {
   const [isError, setIsError] = useState('');
@@ -17,20 +18,22 @@ const MovieDetailsPage = () => {
   const location = useLocation();
   const goBackRef = useRef(location.state ?? '/');
 
-  console.log(movieId);
-
   useEffect(() => {
     const fetchMovieById = async () => {
       try {
+        setIsError(false);
         const movieData = await getMovieDetails(movieId);
         setMovie(movieData);
       } catch (error) {
+        setIsError(true);
         console.log(error.message);
       }
     };
 
     fetchMovieById();
   }, [movieId]);
+
+  if (isError) seError();
 
   const handleCountStar = rating => {
     let star = '';

@@ -1,11 +1,10 @@
 import { Field, Formik, Form } from 'formik';
 import { searchMovie } from '../../services/api';
 import { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
 import MovieList from '../../components/MovieList/MovieList';
 import Loader from '../../components/Loader/Loader';
 
-const Movies = () => {
+const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
   const [query, setQuery] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -36,7 +35,7 @@ const Movies = () => {
       <Formik initialValues={{ search: '' }} onSubmit={handleSubmit}>
         <Form className="flex justify-center mb-4">
           <Field
-            className="bg-zinc-200 text-zinc-600 font-mono ring-1 ring-zinc-400 focus:ring-2 focus:ring-rose-400 outline-none duration-300 placeholder:text-zinc-600 placeholder:opacity-50 rounded-full px-4 py-1 shadow-md focus:shadow-lg focus:shadow-rose-400"
+            className="bg-orange-400 text-zinc-700 font-medium ring-1 ring-zinc-700 focus:ring-2 focus:ring-orange-400 outline-none duration-300 placeholder:text-zinc-600 placeholder:opacity-50 rounded-full px-4 py-1 shadow-md focus:shadow-lg focus:shadow-orange-400"
             type="text"
             placeholder="enter movies ..."
             name="search"
@@ -49,4 +48,4 @@ const Movies = () => {
   );
 };
 
-export default Movies;
+export default MoviesPage;

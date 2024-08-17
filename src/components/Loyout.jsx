@@ -1,11 +1,11 @@
 import { Outlet } from 'react-router-dom';
-import Header from './Header/Header';
+import Navigation from './Navigation/Navigation';
 
 const Layout = () => {
   return (
     <div>
-      <Header />
-      <section className="p-2 min-h-screen bg-gray-400 text-white">
+      <Navigation />
+      <section className="p-2 min-h-screen bg-zinc-900 text-white ">
         <Outlet />
       </section>
     </div>

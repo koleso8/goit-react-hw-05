@@ -3,7 +3,7 @@ import { getMovies } from '../../services/api';
 import MovieList from '../../components/MovieList/MovieList';
 import Loader from '../../components/Loader/Loader';
 
-const Home = () => {
+const HomePage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState('');
   const [movies, setMovies] = useState([]);
@@ -26,11 +26,13 @@ const Home = () => {
   return (
     <>
       {isLoading && <Loader />}
-      <h2>Trending today</h2>
+      <h2 className="text-center text-4xl font-medium text-amber-600 mb-3">
+        Trending today
+      </h2>
 
       <MovieList movies={movies} />
     </>
   );
 };
 
-export default Home;
+export default HomePage;

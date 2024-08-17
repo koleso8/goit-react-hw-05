@@ -11,10 +11,10 @@ export default {
       dropShadow: {
         '3xl': '0 35px 35px rgba(0, 0, 0, 0.25)',
         '4xl': [
-          '1px 1px 1px #000',
-          '-1px 1px 1px #000',
-          '0 1px 1px #000',
-          '0 -1px 1px #000',
+          '1px 1px 2px #000',
+          '-1px -1px 2px #000',
+          '0 1px 2px #000',
+          '0 -1px 2px #000',
         ],
       },
     },

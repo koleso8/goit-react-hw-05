@@ -3,5 +3,8 @@
 @tailwind utilities;
 
 .active {
-  color: aqua;
+  color: orange;
+  &:hover {
+    text-shadow: 0 0 10px #ffd500a2;
+  }
 }

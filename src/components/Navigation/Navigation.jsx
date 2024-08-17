@@ -1,8 +1,8 @@
 import { NavLink } from 'react-router-dom';
 
-const Header = () => {
+const Navigation = () => {
   return (
-    <div className="flex">
+    <div className="flex pt-2 pb-2 justify-center  text-lg shadow-orange-400 ">
       <ul className="flex justify-between gap-4">
         <li>
           <NavLink to="/">Home</NavLink>
@@ -15,4 +15,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Navigation;

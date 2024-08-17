@@ -24,18 +24,18 @@ const MovieCast = () => {
       <ul className="flex gap-3 overflow-x-scroll">
         {cast.map(item => (
           <li
-            className="w-60 p-4 bg-amber-600 text-black rounded-md flex flex-col "
+            className="w-60 p-4 bg-amber-700 text-black rounded-xl flex flex-col "
             key={item.id}
           >
             {item.profile_path && (
               <img
-                className="max-w-40"
+                className="max-w-40 rounded-xl mb-4"
                 src={`https://image.tmdb.org/t/p/w500${item.profile_path}`}
                 alt={item.name}
               />
             )}
-            <h3 className=" text-2xl text-center">{item.name}</h3>
-            <p className="h-4  text-sm text-center overflow-y-scroll">
+            <h3 className=" text-2xl font-medium text-center">{item.name}</h3>
+            <p className="h-6  text-sm text-center overflow-y-scroll">
               Character:{item.character}
             </p>
           </li>

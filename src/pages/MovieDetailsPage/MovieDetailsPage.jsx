@@ -60,7 +60,7 @@ const MovieDetailsPage = () => {
       </Link>
       <div className="relative mb-4">
         <img
-          className="w-full "
+          className="max-h-screen w-full object-cover "
           src={
             'https://image.tmdb.org/t/p/original' +
             (movie.backdrop_path ||

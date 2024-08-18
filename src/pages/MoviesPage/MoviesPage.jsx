@@ -16,14 +16,16 @@ const MoviesPage = () => {
   useEffect(() => {
     const search = searchParams.get('search');
     if (!search) return;
+    if (query.trim()) seError('Please, enter valid value');
 
     const fetchData = async () => {
       try {
         setIsLoading(true);
+        setIsError(false);
         const searchMovies = await searchMovie(search);
         setMovies(searchMovies);
       } catch (error) {
-        setIsError(error.message);
+        setIsError(true);
       } finally {
         setIsLoading(false);
       }
@@ -31,8 +33,9 @@ const MoviesPage = () => {
     fetchData();
   }, [query, searchParams]);
 
+  if (isError) seError();
+
   const handleSubmit = async (res, options) => {
-    if (res.search.trim()) seError();
     setSearchParams(res);
     setQuery(res.search.trim());
     options.resetForm();

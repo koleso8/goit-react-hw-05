@@ -1,12 +1,10 @@
 import Swal from 'sweetalert2';
 
-const seError = () => {
-  console.log('PES');
-
+const seError = (params = "I'm so sorry, please try again") => {
   Swal.fire({
     position: 'center',
     icon: 'error',
-    title: "I'm so sorry, please try again",
+    title: params,
     showConfirmButton: false,
     timer: 1500,
   });

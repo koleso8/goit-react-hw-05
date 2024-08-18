@@ -23,23 +23,27 @@ const MovieReviews = () => {
     fetchReviewsById();
   }, [movieId]);
 
-  if (isError) seError();
-
-  return (
-    <div>
-      {!reviews.length && <h3>We don`t have any reviews for this movie</h3>}
-      <ul>
-        {reviews.map(item => (
-          <li key={item.id}>
-            <h3 className="mb-4 text-amber-400 capitalize">{item.author} :</h3>
-            <p className="p-2 outline-dotted outline-amber-600 block mb-4">
-              {item.content}
-            </p>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+  if (isError) {
+    seError();
+  } else {
+    return (
+      <div>
+        {!reviews.length && <h3>We don`t have any reviews for this movie</h3>}
+        <ul>
+          {reviews.map(item => (
+            <li key={item.id}>
+              <h3 className="mb-4 text-amber-400 capitalize">
+                {item.author} :
+              </h3>
+              <p className="p-2 outline-dotted outline-amber-600 block mb-4">
+                {item.content}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
 };
 
 export default MovieReviews;
